@@ -89,7 +89,10 @@ export function Sky() {
         />
       </svg>
       {/* swaying trees */}
-      <svg viewBox="0 0 120 160" className="animate-sway absolute bottom-0 left-[4%] h-40 w-28 opacity-80">
+      <svg
+        viewBox="0 0 120 160"
+        className="animate-sway absolute bottom-0 left-[4%] h-40 w-28 opacity-80"
+      >
         <path d="M58 150V96" stroke="var(--bark)" strokeWidth="8" strokeLinecap="round" />
         <path
           d="M60 12c26 8 36 30 30 48-4 12-16 18-30 18s-27-6-31-18c-6-19 5-40 31-48z"
@@ -98,9 +101,19 @@ export function Sky() {
           strokeWidth="4"
         />
       </svg>
-      <svg viewBox="0 0 120 160" className="animate-sway absolute right-[6%] bottom-0 h-32 w-24 opacity-70">
+      <svg
+        viewBox="0 0 120 160"
+        className="animate-sway absolute right-[6%] bottom-0 h-32 w-24 opacity-70"
+      >
         <path d="M60 150V90" stroke="var(--bark)" strokeWidth="7" strokeLinecap="round" />
-        <circle cx="60" cy="60" r="36" fill="var(--sage-light)" stroke="var(--bark)" strokeWidth="4" />
+        <circle
+          cx="60"
+          cy="60"
+          r="36"
+          fill="var(--sage-light)"
+          stroke="var(--bark)"
+          strokeWidth="4"
+        />
       </svg>
     </div>
   );

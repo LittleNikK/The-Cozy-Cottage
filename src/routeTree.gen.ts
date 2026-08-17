@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GardenRouteImport } from './routes/garden'
 import { Route as GuestbookRouteImport } from './routes/guestbook'
+import { Route as MusicBoxRouteImport } from './routes/music-box'
 import { Route as PetCornerRouteImport } from './routes/pet-corner'
 import { Route as RecipeNookRouteImport } from './routes/recipe-nook'
 import { Route as ScrapbookRouteImport } from './routes/scrapbook'
@@ -20,9 +22,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GardenRoute = GardenRouteImport.update({
+  id: '/garden',
+  path: '/garden',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuestbookRoute = GuestbookRouteImport.update({
   id: '/guestbook',
   path: '/guestbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicBoxRoute = MusicBoxRouteImport.update({
+  id: '/music-box',
+  path: '/music-box',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PetCornerRoute = PetCornerRouteImport.update({
@@ -43,14 +55,18 @@ const ScrapbookRoute = ScrapbookRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/garden': typeof GardenRoute
   '/guestbook': typeof GuestbookRoute
+  '/music-box': typeof MusicBoxRoute
   '/pet-corner': typeof PetCornerRoute
   '/recipe-nook': typeof RecipeNookRoute
   '/scrapbook': typeof ScrapbookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/garden': typeof GardenRoute
   '/guestbook': typeof GuestbookRoute
+  '/music-box': typeof MusicBoxRoute
   '/pet-corner': typeof PetCornerRoute
   '/recipe-nook': typeof RecipeNookRoute
   '/scrapbook': typeof ScrapbookRoute
@@ -58,20 +74,38 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/garden': typeof GardenRoute
   '/guestbook': typeof GuestbookRoute
+  '/music-box': typeof MusicBoxRoute
   '/pet-corner': typeof PetCornerRoute
   '/recipe-nook': typeof RecipeNookRoute
   '/scrapbook': typeof ScrapbookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/guestbook' | '/pet-corner' | '/recipe-nook' | '/scrapbook'
+  fullPaths:
+    | '/'
+    | '/garden'
+    | '/guestbook'
+    | '/music-box'
+    | '/pet-corner'
+    | '/recipe-nook'
+    | '/scrapbook'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/guestbook' | '/pet-corner' | '/recipe-nook' | '/scrapbook'
+  to:
+    | '/'
+    | '/garden'
+    | '/guestbook'
+    | '/music-box'
+    | '/pet-corner'
+    | '/recipe-nook'
+    | '/scrapbook'
   id:
     | '__root__'
     | '/'
+    | '/garden'
     | '/guestbook'
+    | '/music-box'
     | '/pet-corner'
     | '/recipe-nook'
     | '/scrapbook'
@@ -79,7 +113,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GardenRoute: typeof GardenRoute
   GuestbookRoute: typeof GuestbookRoute
+  MusicBoxRoute: typeof MusicBoxRoute
   PetCornerRoute: typeof PetCornerRoute
   RecipeNookRoute: typeof RecipeNookRoute
   ScrapbookRoute: typeof ScrapbookRoute
@@ -94,11 +130,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/garden': {
+      id: '/garden'
+      path: '/garden'
+      fullPath: '/garden'
+      preLoaderRoute: typeof GardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guestbook': {
       id: '/guestbook'
       path: '/guestbook'
       fullPath: '/guestbook'
       preLoaderRoute: typeof GuestbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music-box': {
+      id: '/music-box'
+      path: '/music-box'
+      fullPath: '/music-box'
+      preLoaderRoute: typeof MusicBoxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pet-corner': {
@@ -127,7 +177,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GardenRoute: GardenRoute,
   GuestbookRoute: GuestbookRoute,
+  MusicBoxRoute: MusicBoxRoute,
   PetCornerRoute: PetCornerRoute,
   RecipeNookRoute: RecipeNookRoute,
   ScrapbookRoute: ScrapbookRoute,

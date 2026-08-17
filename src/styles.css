@@ -196,10 +196,7 @@
 @layer base {
   body {
     font-family: var(--font-body);
-    background-image: radial-gradient(
-      oklch(0.42 0.045 55 / 0.05) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(oklch(0.42 0.045 55 / 0.05) 1px, transparent 1px);
     background-size: 18px 18px;
   }
   h1,
@@ -221,36 +218,103 @@
 }
 
 @keyframes cozy-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 @keyframes cozy-drift {
-  from { transform: translateX(-15%); }
-  to { transform: translateX(115%); }
+  from {
+    transform: translateX(-15%);
+  }
+  to {
+    transform: translateX(115%);
+  }
 }
 @keyframes cozy-sway {
-  0%, 100% { transform: rotate(-1.5deg); }
-  50% { transform: rotate(1.5deg); }
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
 }
 @keyframes cozy-twinkle {
-  0%, 100% { opacity: 0.15; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 @keyframes cozy-steam {
-  0% { opacity: 0; transform: translateY(6px) scaleX(0.9); }
-  40% { opacity: 0.7; }
-  100% { opacity: 0; transform: translateY(-26px) scaleX(1.3); }
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scaleX(0.9);
+  }
+  40% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-26px) scaleX(1.3);
+  }
 }
 
-.animate-float { animation: cozy-float 5s ease-in-out infinite; }
-.animate-sway { animation: cozy-sway 7s ease-in-out infinite; transform-origin: bottom center; }
-.animate-twinkle { animation: cozy-twinkle 3s ease-in-out infinite; }
-.animate-steam { animation: cozy-steam 3.2s ease-out infinite; }
+.animate-float {
+  animation: cozy-float 5s ease-in-out infinite;
+}
+.animate-sway {
+  animation: cozy-sway 7s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+.animate-twinkle {
+  animation: cozy-twinkle 3s ease-in-out infinite;
+}
+.animate-steam {
+  animation: cozy-steam 3.2s ease-out infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Custom scrollbar matching parchment/bark */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+  border-left: 2px solid var(--bark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bark);
+  border-radius: 4px;
+  border: 2px solid var(--cream);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage);
+}
+
+/* Custom wobble hover effect for buttons */
+.wobble-border {
+  border: 2px solid var(--bark);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+.wobble-border:hover {
+  border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
 }
