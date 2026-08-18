@@ -273,7 +273,7 @@ function Scrapbook() {
       {/* Corkboard Scrapbook Wall */}
       <div
         ref={board}
-        className="relative mt-6 h-[36rem] w-full overflow-hidden rounded-3xl border-4 border-bark/35 shadow-[var(--shadow-cozy)]"
+        className="relative mt-6 h-[28rem] sm:h-[36rem] w-full overflow-hidden rounded-3xl border-4 border-bark/35 shadow-[var(--shadow-cozy)]"
         style={{
           background:
             "repeating-linear-gradient(45deg, oklch(0.74 0.06 70), oklch(0.74 0.06 70) 6px, oklch(0.71 0.06 66) 6px, oklch(0.71 0.06 66) 12px)",
@@ -357,7 +357,7 @@ function ScrapItem({
         zIndex: z,
         boxShadow: "var(--shadow-paper)",
       }}
-      className="scrapbook-item focus-visible:ring-ring w-44 cursor-grab rounded-sm bg-card p-2.5 active:cursor-grabbing focus-visible:ring-4 focus-visible:outline-none select-none relative group border border-bark/10"
+      className="scrapbook-item focus-visible:ring-ring w-32 sm:w-44 cursor-grab rounded-sm bg-card p-1.5 sm:p-2.5 active:cursor-grabbing focus-visible:ring-4 focus-visible:outline-none select-none relative group border border-bark/10"
     >
       {/* Delete Pin button */}
       <button
@@ -375,7 +375,7 @@ function ScrapItem({
       {/* Decorative Washi Tape */}
       <span
         aria-hidden
-        className="absolute -top-3.5 left-1/2 h-6 w-16 -translate-x-1/2 -rotate-3 opacity-80"
+        className="absolute -top-3 left-1/2 h-4 sm:h-6 w-12 sm:w-16 -translate-x-1/2 -rotate-3 opacity-80"
         style={{ background: item.hue, boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)" }}
       />
 
@@ -400,26 +400,26 @@ function ScrapItem({
 
       {item.kind === "note" && (
         <div
-          className="flex aspect-[4/3] items-center justify-center p-2 text-center rounded-sm"
+          className="flex aspect-[4/3] items-center justify-center p-1 sm:p-2 text-center rounded-sm"
           style={{ background: item.hue }}
         >
-          <p className="font-hand text-xl text-bark leading-tight">{item.caption}</p>
+          <p className="font-hand text-sm sm:text-xl text-bark leading-tight">{item.caption}</p>
         </div>
       )}
 
       {item.kind === "postcard" && (
         <div
-          className="aspect-[3/2] p-2 rounded-sm border-r-2 border-dashed border-bark/20"
+          className="aspect-[3/2] p-1 sm:p-2 rounded-sm border-r-2 border-dashed border-bark/20"
           style={{ background: item.hue }}
         >
-          <p className="font-hand text-lg leading-tight text-bark">{item.caption}</p>
-          <div className="mt-2 flex justify-between items-end">
-            <span aria-hidden className="text-[10px] text-muted-foreground font-hand">
+          <p className="font-hand text-xs sm:text-lg leading-tight text-bark">{item.caption}</p>
+          <div className="mt-1 sm:mt-2 flex justify-between items-end">
+            <span aria-hidden className="text-[8px] sm:text-[10px] text-muted-foreground font-hand">
               post stamp
             </span>
             <span
               aria-hidden
-              className="inline-block rotate-6 border border-dashed border-bark/30 px-1.5 py-0.5 text-xs text-bark/60 font-semibold bg-white/20"
+              className="inline-block rotate-6 border border-dashed border-bark/30 px-1 sm:px-1.5 py-0.2 sm:py-0.5 text-[10px] sm:text-xs text-bark/60 font-semibold bg-white/20"
             >
               ✉︎
             </span>
@@ -434,7 +434,7 @@ function ScrapItem({
       )}
 
       {item.kind !== "note" && (
-        <p className="font-hand mt-1.5 text-center text-lg leading-tight text-bark">
+        <p className="font-hand mt-1 sm:mt-1.5 text-center text-sm sm:text-lg leading-tight text-bark">
           {item.caption}
         </p>
       )}
@@ -447,7 +447,12 @@ function FlowerDrawing({ caption }: { caption: string }) {
 
   if (lowercase.includes("lavender")) {
     return (
-      <svg viewBox="0 0 80 80" className="h-20 w-20" role="img" aria-label="Pressed Lavender">
+      <svg
+        viewBox="0 0 80 80"
+        className="h-14 w-14 sm:h-20 sm:w-20"
+        role="img"
+        aria-label="Pressed Lavender"
+      >
         <path d="M40 70V20" stroke="var(--bark)" strokeWidth="3" strokeLinecap="round" />
         <path
           d="M40 32c-3-3-6 0-3 3s6 0 3-3z"
@@ -486,7 +491,12 @@ function FlowerDrawing({ caption }: { caption: string }) {
 
   if (lowercase.includes("sunflower")) {
     return (
-      <svg viewBox="0 0 80 80" className="h-20 w-20" role="img" aria-label="Pressed Sunflower">
+      <svg
+        viewBox="0 0 80 80"
+        className="h-14 w-14 sm:h-20 sm:w-20"
+        role="img"
+        aria-label="Pressed Sunflower"
+      >
         {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((a) => (
           <ellipse
             key={a}
@@ -514,7 +524,12 @@ function FlowerDrawing({ caption }: { caption: string }) {
 
   if (lowercase.includes("daisy")) {
     return (
-      <svg viewBox="0 0 80 80" className="h-20 w-20" role="img" aria-label="Pressed Daisy">
+      <svg
+        viewBox="0 0 80 80"
+        className="h-14 w-14 sm:h-20 sm:w-20"
+        role="img"
+        aria-label="Pressed Daisy"
+      >
         {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
           <ellipse
             key={a}
@@ -542,7 +557,12 @@ function FlowerDrawing({ caption }: { caption: string }) {
 
   // Fallback: Clover drawing
   return (
-    <svg viewBox="0 0 80 80" className="h-20 w-20" role="img" aria-label="Pressed Clover">
+    <svg
+      viewBox="0 0 80 80"
+      className="h-14 w-14 sm:h-20 sm:w-20"
+      role="img"
+      aria-label="Pressed Clover"
+    >
       {[0, 90, 180, 270].map((a) => (
         <ellipse
           key={a}

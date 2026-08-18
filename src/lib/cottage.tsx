@@ -461,7 +461,7 @@ export function CottageProvider({ children }: { children: ReactNode }) {
       440.0, // A4
       523.25, // C5
       587.33, // D5
-      659.25, // E5
+      659.25, // E5eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeZ
       783.99, // G5
       880.0, // A5
     ];

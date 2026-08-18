@@ -169,7 +169,7 @@ function Garden() {
           />
 
           {/* Wooden Shelf Diorama */}
-          <div className="relative z-10 grid grid-cols-2 gap-x-12 gap-y-16 pb-12">
+          <div className="relative z-10 grid grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-8 sm:gap-y-16 pb-12">
             {gardenState.map((pot) => (
               <div key={pot.id} className="relative flex flex-col items-center justify-end h-56">
                 {/* Drips animation */}
@@ -229,7 +229,7 @@ function Garden() {
                       if (!pot.seed) setPlantingPotId(pot.id);
                     }
                   }}
-                  className={`w-32 relative cursor-pointer group transition-transform hover:scale-102 ${
+                  className={`w-24 xs:w-28 sm:w-32 relative cursor-pointer group transition-transform hover:scale-102 ${
                     wateringCanActive && pot.seed ? "active:scale-98" : ""
                   }`}
                   aria-label={`Clay pot ${pot.id}. ${
@@ -271,13 +271,13 @@ function Garden() {
                   {/* Status Indicator */}
                   <div className="absolute inset-x-0 bottom-2 text-center pointer-events-none">
                     {pot.seed ? (
-                      <span className="bg-bark/85 text-cream px-2 py-0.5 rounded-full text-xs font-semibold">
+                      <span className="bg-bark/85 text-cream px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold">
                         {pot.growth >= 100
                           ? "Harvest! 🌻"
                           : `${pot.growth}% ${pot.watered ? "💦" : "🌱"}`}
                       </span>
                     ) : (
-                      <span className="bg-bark/30 text-cream px-2 py-0.5 rounded-full text-xs font-semibold group-hover:bg-bark/60">
+                      <span className="bg-bark/30 text-cream px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold group-hover:bg-bark/60 whitespace-nowrap">
                         Plant Seed +
                       </span>
                     )}

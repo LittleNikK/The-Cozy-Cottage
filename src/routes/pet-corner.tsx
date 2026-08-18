@@ -435,7 +435,7 @@ function PetCorner() {
                     Tap the shaking bushes to see what Pip finds hidden in the roots!
                   </p>
 
-                  <div className="grid grid-cols-3 gap-4 py-8">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 py-8">
                     {bushes.map((bush) => (
                       <div key={bush.id} className="flex flex-col items-center">
                         <motion.button
@@ -443,15 +443,15 @@ function PetCorner() {
                           onClick={() => handleBushClick(bush.id)}
                           animate={!bush.shook ? { rotate: [-2, 2, -2, 2, 0] } : {}}
                           transition={{ repeat: Infinity, duration: 1.5 }}
-                          className={`h-24 w-24 rounded-full flex items-center justify-center border-2 transition cursor-pointer ${
+                          className={`h-16 w-16 xs:h-20 xs:w-20 sm:h-24 sm:w-24 rounded-full flex items-center justify-center border-2 transition cursor-pointer ${
                             bush.shook
-                              ? "border-bark/10 bg-secondary/40 text-3xl"
-                              : "border-bark/30 bg-sage hover:bg-sage/90 text-2xl shadow-sm active:scale-95"
+                              ? "border-bark/10 bg-secondary/40 text-xl sm:text-3xl"
+                              : "border-bark/30 bg-sage hover:bg-sage/90 text-lg sm:text-2xl shadow-sm active:scale-95"
                           }`}
                         >
                           {bush.shook ? bush.loot.icon : "🍃"}
                         </motion.button>
-                        <span className="text-xs font-semibold mt-2">
+                        <span className="text-[10px] sm:text-xs font-semibold mt-2 text-center leading-tight">
                           {bush.shook ? bush.loot.label : "Shaking Bush"}
                         </span>
                       </div>

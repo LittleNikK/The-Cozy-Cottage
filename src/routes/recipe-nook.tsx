@@ -196,7 +196,7 @@ function RecipeNookPage() {
               aria-hidden
               className="absolute -top-4 right-14 z-20 h-24 w-6 rounded-b-md bg-secondary shadow-md"
             />
-            <div className="paper wobble-border relative min-h-[28rem] overflow-hidden rounded-3xl p-6 sm:p-10">
+            <div className="paper wobble-border relative min-h-[28rem] overflow-hidden rounded-3xl p-4 sm:p-10">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.article
                   key={page}
@@ -208,13 +208,13 @@ function RecipeNookPage() {
                   className="grid gap-6 sm:grid-cols-[1fr_auto]"
                 >
                   <div className="min-h-[18rem]">
-                    <h2 className="font-hand text-4xl">{r.title}</h2>
+                    <h2 className="font-hand text-3xl sm:text-4xl">{r.title}</h2>
                     <p className="text-sm tracking-wide text-muted-foreground uppercase">
                       {r.time}
                     </p>
                     <ul className="mt-4 space-y-2">
                       {r.lines.map((l) => (
-                        <li key={l} className="flex items-start gap-2 text-lg">
+                        <li key={l} className="flex items-start gap-2 text-base sm:text-lg">
                           <span
                             aria-hidden
                             className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sage"
@@ -223,7 +223,9 @@ function RecipeNookPage() {
                         </li>
                       ))}
                     </ul>
-                    <p className="font-hand mt-5 text-2xl text-muted-foreground">“{r.note}”</p>
+                    <p className="font-hand mt-5 text-xl sm:text-2xl text-muted-foreground">
+                      “{r.note}”
+                    </p>
                   </div>
                   <div className="flex flex-col justify-start">
                     <Doodle kind={r.icon} />
@@ -231,23 +233,23 @@ function RecipeNookPage() {
                 </motion.article>
               </AnimatePresence>
 
-              <div className="mt-8 flex items-center justify-between">
+              <div className="mt-8 flex items-center justify-between gap-1">
                 <button
                   type="button"
                   onClick={() => go(-1)}
                   disabled={page === 0}
-                  className="focus-visible:ring-ring rounded-full border-2 border-bark/30 px-4 py-2 font-semibold disabled:opacity-40 focus-visible:ring-2 focus-visible:outline-none cursor-pointer"
+                  className="focus-visible:ring-ring rounded-full border-2 border-bark/30 px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base font-semibold disabled:opacity-40 focus-visible:ring-2 focus-visible:outline-none cursor-pointer"
                 >
                   ← Previous
                 </button>
-                <p className="font-hand text-2xl" aria-live="polite">
+                <p className="font-hand text-xl sm:text-2xl text-center" aria-live="polite">
                   page {page + 1} of {allRecipes.length}
                 </p>
                 <button
                   type="button"
                   onClick={() => go(1)}
                   disabled={page === allRecipes.length - 1}
-                  className="focus-visible:ring-ring rounded-full border-2 border-bark/30 px-4 py-2 font-semibold disabled:opacity-40 focus-visible:ring-2 focus-visible:outline-none cursor-pointer"
+                  className="focus-visible:ring-ring rounded-full border-2 border-bark/30 px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base font-semibold disabled:opacity-40 focus-visible:ring-2 focus-visible:outline-none cursor-pointer"
                 >
                   Next →
                 </button>
